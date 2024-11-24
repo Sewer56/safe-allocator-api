@@ -244,6 +244,47 @@ impl<A: Allocator> RawAlloc<A> {
         self.ptr.as_ptr() as *mut u8
     }
 
+    /// Returns a slice reference to the allocated memory.
+    ///
+    /// This provides a safe interface to access the allocated memory as a byte slice.
+    ///
+    /// # Example
+    ///
+    /// ```rust
+    /// use allocator_api2::alloc::*;
+    /// use safe_allocator_api::RawAlloc;
+    ///
+    /// let layout = Layout::array::<u8>(100).unwrap();
+    /// let alloc = RawAlloc::new(layout)?;
+    /// let slice = alloc.as_slice();
+    /// assert_eq!(slice.len(), 100);
+    /// # Ok::<_, AllocError>(())
+    /// ```
+    pub fn as_slice(&self) -> &[u8] {
+        unsafe { core::slice::from_raw_parts(self.as_ptr(), self.layout.size()) }
+    }
+
+    /// Returns a mutable slice reference to the allocated memory.
+    ///
+    /// This provides a safe interface to access the allocated memory as a mutable byte slice.
+    ///
+    /// # Example
+    ///
+    /// ```rust
+    /// use allocator_api2::alloc::*;
+    /// use safe_allocator_api::RawAlloc;
+    ///
+    /// let layout = Layout::array::<u8>(100).unwrap();
+    /// let mut alloc = RawAlloc::new(layout)?;
+    /// let slice = alloc.as_mut_slice();
+    /// slice[0] = 42;
+    /// assert_eq!(slice[0], 42);
+    /// # Ok::<_, AllocError>(())
+    /// ```
+    pub fn as_mut_slice(&mut self) -> &mut [u8] {
+        unsafe { core::slice::from_raw_parts_mut(self.as_mut_ptr(), self.layout.size()) }
+    }
+
     /// Returns the layout used for this allocation.
     pub fn layout(&self) -> Layout {
         self.layout
