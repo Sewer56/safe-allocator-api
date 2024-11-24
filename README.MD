@@ -36,9 +36,8 @@ safe-allocator-api = "0.1.0"
 ### Basic Allocation
 
 ```rust
-#![feature(allocator_api)]
-use core::alloc::*;
-use safe_alloc::RawAlloc;
+use allocator_api2::alloc::*;
+use safe_allocator_api::RawAlloc;
 
 fn allocate_example() -> Result<(), AllocError> {
     // Create a new allocation of 1024 bytes
@@ -58,9 +57,8 @@ fn allocate_example() -> Result<(), AllocError> {
 ### Zero-Initialized Memory
 
 ```rust
-#![feature(allocator_api)]
-use core::alloc::*;
-use safe_alloc::RawAlloc;
+use allocator_api2::alloc::*;
+use safe_allocator_api::RawAlloc;
 
 fn zero_initialized_example() -> Result<(), AllocError> {
     // Create a zero-initialized allocation
@@ -80,9 +78,8 @@ fn zero_initialized_example() -> Result<(), AllocError> {
 ### Growing and Shrinking Allocations
 
 ```rust
-#![feature(allocator_api)]
-use core::alloc::*;
-use safe_alloc::RawAlloc;
+use allocator_api2::alloc::*;
+use safe_allocator_api::RawAlloc;
 
 fn grow_and_shrink_example() -> Result<(), AllocError> {
     // Start with a small allocation
@@ -104,10 +101,8 @@ fn grow_and_shrink_example() -> Result<(), AllocError> {
 ### Custom Allocators
 
 ```rust
-#![feature(allocator_api)]
-use core::alloc::*;
-use std::alloc::Global;
-use safe_alloc::RawAlloc;
+use allocator_api2::alloc::*;
+use safe_allocator_api::RawAlloc;
 
 fn custom_allocator_example() -> Result<(), AllocError> {
     let layout = Layout::new::<u64>();

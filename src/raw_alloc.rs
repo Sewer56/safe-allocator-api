@@ -20,7 +20,7 @@ use allocator_api2::alloc::{AllocError, Allocator, Global};
 ///
 /// ```rust
 /// # use core::alloc::Layout;
-/// use safe_alloc::RawAlloc;
+/// use safe_allocator_api::RawAlloc;
 ///
 /// // Create a new allocation of 1024 bytes
 /// let layout = Layout::array::<u8>(1024).unwrap();
@@ -61,12 +61,12 @@ impl<A: Allocator> RawAlloc<A> {
     /// #![feature(allocator_api)]
     ///
     /// use core::alloc::Layout;
-    /// use std::alloc::Global;
-    /// use safe_alloc::RawAlloc;
+    /// use allocator_api2::alloc::*;
+    /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::new::<u64>();
     /// let alloc = RawAlloc::new_in(layout, Global)?;
-    /// # Ok::<_, core::alloc::AllocError>(())
+    /// # Ok::<_, AllocError>(())
     /// ```
     pub fn new_in(layout: Layout, allocator: A) -> Result<Self, AllocError> {
         if layout.size() == 0 {
@@ -117,9 +117,8 @@ impl<A: Allocator> RawAlloc<A> {
     /// # Example
     ///
     /// ```rust
-    /// #![feature(allocator_api)]
-    /// use core::alloc::Layout;
-    /// use safe_alloc::RawAlloc;
+    /// use allocator_api2::alloc::*;
+    /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::array::<u8>(100).unwrap();
     /// let mut alloc = RawAlloc::new(layout)?;
@@ -127,7 +126,7 @@ impl<A: Allocator> RawAlloc<A> {
     /// // Grow the allocation
     /// let new_layout = Layout::array::<u8>(200).unwrap();
     /// alloc.grow(new_layout)?;
-    /// # Ok::<_, core::alloc::AllocError>(())
+    /// # Ok::<_, AllocError>(())
     /// ```
     pub fn grow(&mut self, new_layout: Layout) -> Result<(), AllocError> {
         if new_layout.size() == 0 {
@@ -193,9 +192,8 @@ impl<A: Allocator> RawAlloc<A> {
     /// # Example
     ///
     /// ```rust
-    /// #![feature(allocator_api)]
-    /// use core::alloc::Layout;
-    /// use safe_alloc::RawAlloc;
+    /// use allocator_api2::alloc::*;
+    /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::array::<u8>(200).unwrap();
     /// let mut alloc = RawAlloc::new(layout)?;
@@ -203,7 +201,7 @@ impl<A: Allocator> RawAlloc<A> {
     /// // Shrink the allocation
     /// let new_layout = Layout::array::<u8>(100).unwrap();
     /// alloc.shrink(new_layout)?;
-    /// # Ok::<_, core::alloc::AllocError>(())
+    /// # Ok::<_, AllocError>(())
     /// ```
     pub fn shrink(&mut self, new_layout: Layout) -> Result<(), AllocError> {
         if new_layout.size() == 0 {
