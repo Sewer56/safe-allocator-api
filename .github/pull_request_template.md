@@ -3,5 +3,5 @@
 <!--
 Please, make sure:
 - you have read the contributing guidelines:
-  https://github.com/Sewer56/safe-alloc/blob/main/docs/CONTRIBUTING.md
+  https://github.com/Sewer56/safe-allocator-api/blob/main/docs/CONTRIBUTING.md
 -->

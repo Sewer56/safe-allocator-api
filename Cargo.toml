@@ -1,9 +1,9 @@
 [package]
-name = "safe-alloc"
+name = "safe-allocator-api"
 version = "0.1.0"
 edition = "2021"
 description = "A safe wrapper around the `allocator_api`'s Allocator trait."
-repository = "https://github.com/Sewer56/safe-alloc"
+repository = "https://github.com/Sewer56/safe-allocator-api"
 license-file = "LICENSE"
 include = ["src/**/*"]
 readme = "README.MD"

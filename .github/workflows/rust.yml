@@ -64,9 +64,9 @@ jobs:
         if: github.event_name == 'pull_request' || startsWith(github.ref, 'refs/tags/')
         shell: bash
         run: |
-          SEARCH_RESULT=$(cargo search "^safe-alloc$" --limit 1)
+          SEARCH_RESULT=$(cargo search "^safe-allocator-api$" --limit 1)
 
-          if echo "$SEARCH_RESULT" | grep -q "^safe-alloc "; then
+          if echo "$SEARCH_RESULT" | grep -q "^safe-allocator-api "; then
             rustup target add ${{ matrix.target }}
             cargo install cargo-semver-checks
             cargo semver-checks --target ${{ matrix.target }} 

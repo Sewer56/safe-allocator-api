@@ -1,8 +1,8 @@
-# safe-alloc
+# safe-allocator-api
 
-[![Crates.io](https://img.shields.io/crates/v/safe-alloc.svg)](https://crates.io/crates/safe-alloc)
-[![Docs.rs](https://docs.rs/safe-alloc/badge.svg)](https://docs.rs/safe-alloc)
-[![CI](https://github.com/Sewer56/safe-alloc/actions/workflows/rust.yml/badge.svg)](https://github.com/Sewer56/safe-alloc/actions)
+[![Crates.io](https://img.shields.io/crates/v/safe-allocator-api.svg)](https://crates.io/crates/safe-allocator-api)
+[![Docs.rs](https://docs.rs/safe-allocator-api/badge.svg)](https://docs.rs/safe-allocator-api)
+[![CI](https://github.com/Sewer56/safe-allocator-api/actions/workflows/rust.yml/badge.svg)](https://github.com/Sewer56/safe-allocator-api/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A safe wrapper around the `allocator_api`'s [Allocator] trait.
@@ -28,7 +28,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-safe-alloc = "0.1.0"
+safe-allocator-api = "0.1.0"
 ```
 
 ## Examples

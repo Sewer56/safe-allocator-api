@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-First off, thank you for considering contributing to safe-alloc.
+First off, thank you for considering contributing to safe-allocator-api.
 
 If your contribution is not straightforward, please first discuss the change you
 wish to make by creating a new issue before making the change. We might be able to discuss
@@ -9,7 +9,7 @@ general design, etc. before you embark on a huge endeavour.
 ## Reporting Issues
 
 Before reporting an issue on the
-[issue tracker](https://github.com/Sewer56/safe-alloc/issues),
+[issue tracker](https://github.com/Sewer56/safe-allocator-api/issues),
 please check that it has not already been reported by searching for some related
 keywords.
 

@@ -5,7 +5,7 @@ How to develop this project.
 ***Clone this Repository:***
 ```bash
 # When cloning, make sure symlinks are enabled
-git clone -c core.symlinks=true https://github.com/Sewer56/safe-alloc.git
+git clone -c core.symlinks=true https://github.com/Sewer56/safe-allocator-api.git
 ```
 
 ***Install Rust:***
