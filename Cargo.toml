@@ -1,6 +1,6 @@
 [package]
 name = "safe-allocator-api"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A safe wrapper around the `allocator_api`'s Allocator trait."
 repository = "https://github.com/Sewer56/safe-allocator-api"
@@ -10,6 +10,7 @@ readme = "README.MD"
 
 [features]
 default = ["std"]
+nightly = ["allocator-api2/nightly"]
 std = []
 
 [dependencies]

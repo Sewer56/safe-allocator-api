@@ -117,21 +117,20 @@ fn custom_allocator_example() -> Result<(), AllocError> {
 }
 ```
 
-## Safety
-
-This crate provides a safe interface by ensuring:
-- The wrapped pointer is always non-null and properly aligned
-- Memory is automatically deallocated when dropped
-- Reallocation maintains proper alignment and size constraints
-- Error conditions are properly handled and reported
-
 ## Error Handling
 
-Operations will return `AllocError` in the following cases:
+Operations will return [AllocError] in the following cases:
 - The allocator reports an error
 - Attempting to allocate zero bytes
 - Growing to a smaller size
 - Shrinking to a larger size
+
+i.e. This is a thin wrapper around the existing API, so we reuse error types from std.
+
+## Crate Features
+
+- `std` [default]: Builds against `std`
+- `nightly`: Enables the nightly `allocator_api` feature
 
 ## Development
 
@@ -148,3 +147,4 @@ Licensed under [MIT](./LICENSE).
 [nuget-key]: https://www.nuget.org/account/apikeys
 [reloaded-license]: https://reloaded-project.github.io/Reloaded.MkDocsMaterial.Themes.R2/Pages/license/
 [Allocator]: https://doc.rust-lang.org/std/alloc/trait.Allocator.html
+[AllocError]: https://doc.rust-lang.org/std/alloc/struct.AllocError.html
