@@ -1,10 +1,7 @@
 #![doc = include_str!("../README.MD")]
 #![cfg_attr(not(feature = "std"), no_std)]
+#![feature(allocator_api)]
+extern crate alloc;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+pub mod raw_alloc;
+pub use raw_alloc::*;
