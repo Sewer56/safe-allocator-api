@@ -2,9 +2,10 @@
 //!
 //! This crate provides a safe interface for working with raw allocations while maintaining
 //! the same error handling semantics as the underlying allocation APIs.
-use alloc::alloc::{AllocError, Allocator, Global, Layout};
-use core::fmt;
 use core::ptr::NonNull;
+use core::{alloc::Layout, fmt};
+
+use allocator_api2::alloc::{AllocError, Allocator, Global};
 
 /// A safe wrapper around a raw allocation with known layout.
 ///

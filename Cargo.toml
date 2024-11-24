@@ -2,7 +2,7 @@
 name = "safe-alloc"
 version = "0.1.0"
 edition = "2021"
-description = "A safe wrapper around the allocation methods in alloc"
+description = "A safe wrapper around the `allocator_api`'s Allocator trait."
 repository = "https://github.com/Sewer56/safe-alloc"
 license-file = "LICENSE"
 include = ["src/**/*"]
@@ -11,6 +11,9 @@ readme = "README.MD"
 [features]
 default = ["std"]
 std = []
+
+[dependencies]
+allocator-api2 = "0.2.20"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dev-dependencies]

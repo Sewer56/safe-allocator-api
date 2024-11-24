@@ -5,7 +5,10 @@
 [![CI](https://github.com/Sewer56/safe-alloc/actions/workflows/rust.yml/badge.svg)](https://github.com/Sewer56/safe-alloc/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A safe wrapper around low-level allocation primitives from Rust's `alloc` crate. This crate provides a safe interface for working with raw allocations while maintaining the same error handling semantics as the underlying allocation APIs.
+A safe wrapper around the `allocator_api`'s [Allocator] trait.
+
+This crate provides a wrapper around the returned results, ensuring that any allocated memory
+is automatically dropped when its lifetime expires.
 
 ## Features
 
@@ -15,6 +18,9 @@ A safe wrapper around low-level allocation primitives from Rust's `alloc` crate.
 - Zero-initialization options
 - Grow and shrink operations with proper error handling
 - Thread-safe (implements `Send` and `Sync`)
+  - Actual thread safety depends on safety of the allocator used internally, tread wisely.
+
+In my case I wrote this crate to have a 'safe' way to make aligned allocations 😉.
 
 ## Usage
 
@@ -141,3 +147,4 @@ Licensed under [MIT](./LICENSE).
 [crates-io-key]: https://crates.io/settings/tokens
 [nuget-key]: https://www.nuget.org/account/apikeys
 [reloaded-license]: https://reloaded-project.github.io/Reloaded.MkDocsMaterial.Themes.R2/Pages/license/
+[Allocator]: https://doc.rust-lang.org/std/alloc/trait.Allocator.html
