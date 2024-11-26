@@ -289,6 +289,22 @@ impl<A: Allocator> RawAlloc<A> {
     pub fn layout(&self) -> Layout {
         self.layout
     }
+
+    /// Represents the length of the allocation.
+    ///
+    /// # Remarks
+    ///
+    /// This is the length with which the allocation was created with, extracted
+    /// from the [`Layout`]; in practice, due to alignment, the number of available
+    /// bytes may be slightly larger in practice; but you shouldn't rely on that.
+    pub fn len(&self) -> usize {
+        self.layout.size()
+    }
+
+    /// Checks if the allocation is empty.
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
 }
 
 impl<A: Allocator> Drop for RawAlloc<A> {
