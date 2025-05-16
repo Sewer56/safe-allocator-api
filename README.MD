@@ -36,7 +36,9 @@ safe-allocator-api = "0.1.0"
 ### Basic Allocation
 
 ```rust
-use allocator_api2::alloc::*;
+#![cfg_attr(feature = "nightly", feature(allocator_api))]
+
+use safe_allocator_api::allocator_api::*;
 use safe_allocator_api::RawAlloc;
 
 fn allocate_example() -> Result<(), AllocError> {
@@ -57,7 +59,9 @@ fn allocate_example() -> Result<(), AllocError> {
 ### Zero-Initialized Memory
 
 ```rust
-use allocator_api2::alloc::*;
+#![cfg_attr(feature = "nightly", feature(allocator_api))]
+
+use safe_allocator_api::allocator_api::*;
 use safe_allocator_api::RawAlloc;
 
 fn zero_initialized_example() -> Result<(), AllocError> {
@@ -78,7 +82,9 @@ fn zero_initialized_example() -> Result<(), AllocError> {
 ### Growing and Shrinking Allocations
 
 ```rust
-use allocator_api2::alloc::*;
+#![cfg_attr(feature = "nightly", feature(allocator_api))]
+
+use safe_allocator_api::allocator_api::*;
 use safe_allocator_api::RawAlloc;
 
 fn grow_and_shrink_example() -> Result<(), AllocError> {
@@ -101,7 +107,9 @@ fn grow_and_shrink_example() -> Result<(), AllocError> {
 ### Custom Allocators
 
 ```rust
-use allocator_api2::alloc::*;
+#![cfg_attr(feature = "nightly", feature(allocator_api))]
+
+use safe_allocator_api::allocator_api::*;
 use safe_allocator_api::RawAlloc;
 
 fn custom_allocator_example() -> Result<(), AllocError> {
