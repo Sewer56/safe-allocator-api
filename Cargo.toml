@@ -14,7 +14,7 @@ nightly = ["allocator-api2/nightly"]
 std = []
 
 [dependencies]
-allocator-api2 = "0.2.20"
+allocator-api2 = "0.3.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dev-dependencies]
