@@ -5,3 +5,5 @@ extern crate alloc;
 
 pub mod raw_alloc;
 pub use raw_alloc::*;
+pub mod allocator_api;
+pub use allocator_api::*;
