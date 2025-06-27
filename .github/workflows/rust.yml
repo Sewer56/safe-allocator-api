@@ -64,9 +64,11 @@ jobs:
           SEARCH_RESULT=$(cargo search "^safe-allocator-api$" --limit 1)
 
           if echo "$SEARCH_RESULT" | grep -q "^safe-allocator-api "; then
-            rustup +stable target add ${{ matrix.target }}
-            cargo +stable install cargo-semver-checks
-            cargo +stable semver-checks --target ${{ matrix.target }} 
+              # Run semver checks on stable, because nightly sometimes gets borked in cargo-semver-checks.
+              rustup +stable target add ${{ matrix.target }}
+              # Note: binstall is available after devops-rust-test-and-coverage@v1 call
+              cargo binstall --no-confirm cargo-semver-checks
+              cargo +stable semver-checks --target ${{ matrix.target }}
           else
               echo "No previous version found on crates.io. Skipping semver checks."
           fi
