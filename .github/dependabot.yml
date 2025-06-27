@@ -1,11 +1,43 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
 version: 2
 updates:
-  - package-ecosystem: "cargo" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # Enable version updates for Cargo
+  - package-ecosystem: "cargo"
+    directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Etc/UTC"
+    # Limit the number of open pull requests for version updates
+    open-pull-requests-limit: 5
+    # Add reviewers (optional - you can customize this)
+    # reviewers:
+    #   - "your-username"
+    # Add labels to categorize the PRs
+    labels:
+      - "dependencies"
+      - "rust"
+    # Group updates to reduce noise
+    groups:
+      # Group dev dependencies together
+      dev-dependencies:
+        patterns:
+          - "criterion*"
+          - "rstest*"
+          - "pprof*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group patch updates for all dependencies
+      patch-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+    # Customize commit messages
+    commit-message:
+      prefix: "Updated:"
+      prefix-development: "Updated:"
+      include: "scope"
+    # Allow automatic rebasing when conflicts occur
+    rebase-strategy: "auto"
