@@ -64,9 +64,9 @@ jobs:
           SEARCH_RESULT=$(cargo search "^safe-allocator-api$" --limit 1)
 
           if echo "$SEARCH_RESULT" | grep -q "^safe-allocator-api "; then
-            rustup target add ${{ matrix.target }}
-            cargo install cargo-semver-checks
-            cargo semver-checks --target ${{ matrix.target }} 
+            rustup +stable target add ${{ matrix.target }}
+            cargo +stable install cargo-semver-checks
+            cargo +stable semver-checks --target ${{ matrix.target }} 
           else
               echo "No previous version found on crates.io. Skipping semver checks."
           fi
