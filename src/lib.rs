@@ -8,5 +8,5 @@ extern crate std;
 
 pub mod raw_alloc;
 pub use raw_alloc::*;
-pub mod allocator_api;
-pub use allocator_api::*;
+pub mod prelude;
+pub use prelude::*;

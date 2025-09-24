@@ -28,7 +28,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-safe-allocator-api = "0.1.0"
+safe-allocator-api = "0.5.0"
 ```
 
 ## Examples
@@ -38,7 +38,7 @@ safe-allocator-api = "0.1.0"
 ```rust
 #![cfg_attr(feature = "nightly", feature(allocator_api))]
 
-use safe_allocator_api::allocator_api::*;
+use safe_allocator_api::prelude::*;
 use safe_allocator_api::RawAlloc;
 
 fn allocate_example() -> Result<(), AllocError> {
@@ -61,7 +61,7 @@ fn allocate_example() -> Result<(), AllocError> {
 ```rust
 #![cfg_attr(feature = "nightly", feature(allocator_api))]
 
-use safe_allocator_api::allocator_api::*;
+use safe_allocator_api::prelude::*;
 use safe_allocator_api::RawAlloc;
 
 fn zero_initialized_example() -> Result<(), AllocError> {
@@ -84,7 +84,7 @@ fn zero_initialized_example() -> Result<(), AllocError> {
 ```rust
 #![cfg_attr(feature = "nightly", feature(allocator_api))]
 
-use safe_allocator_api::allocator_api::*;
+use safe_allocator_api::prelude::*;
 use safe_allocator_api::RawAlloc;
 
 fn grow_and_shrink_example() -> Result<(), AllocError> {
@@ -109,7 +109,7 @@ fn grow_and_shrink_example() -> Result<(), AllocError> {
 ```rust
 #![cfg_attr(feature = "nightly", feature(allocator_api))]
 
-use safe_allocator_api::allocator_api::*;
+use safe_allocator_api::prelude::*;
 use safe_allocator_api::RawAlloc;
 
 fn custom_allocator_example() -> Result<(), AllocError> {

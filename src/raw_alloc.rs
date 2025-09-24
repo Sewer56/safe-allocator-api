@@ -2,9 +2,9 @@
 //!
 //! This crate provides a safe interface for working with raw allocations while maintaining
 //! the same error handling semantics as the underlying allocation APIs.
-use crate::allocator_api::*;
+use crate::prelude::*;
+use core::fmt;
 use core::ptr::NonNull;
-use core::{alloc::Layout, fmt};
 
 /// A safe wrapper around a raw allocation with known layout.
 ///
@@ -57,10 +57,9 @@ impl<A: Allocator> RawAlloc<A> {
     /// # Example
     ///
     /// ```rust
-    /// #![feature(allocator_api)]
+    /// #![cfg_attr(feature = "nightly", feature(allocator_api))]
     ///
-    /// use core::alloc::Layout;
-    /// use safe_allocator_api::allocator_api::*;
+    /// use safe_allocator_api::prelude::*;
     /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::new::<u64>();
@@ -118,7 +117,7 @@ impl<A: Allocator> RawAlloc<A> {
     /// ```rust
     /// #![cfg_attr(feature = "nightly", feature(allocator_api))]
     ///
-    /// use safe_allocator_api::allocator_api::*;
+    /// use safe_allocator_api::prelude::*;
     /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::array::<u8>(100).unwrap();
@@ -195,7 +194,7 @@ impl<A: Allocator> RawAlloc<A> {
     /// ```rust
     /// #![cfg_attr(feature = "nightly", feature(allocator_api))]
     ///
-    /// use safe_allocator_api::allocator_api::*;
+    /// use safe_allocator_api::prelude::*;
     /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::array::<u8>(200).unwrap();
@@ -256,7 +255,7 @@ impl<A: Allocator> RawAlloc<A> {
     /// ```rust
     /// #![cfg_attr(feature = "nightly", feature(allocator_api))]
     ///
-    /// use safe_allocator_api::allocator_api::*;
+    /// use safe_allocator_api::prelude::*;
     /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::array::<u8>(100).unwrap();
@@ -278,7 +277,7 @@ impl<A: Allocator> RawAlloc<A> {
     /// ```rust
     /// #![cfg_attr(feature = "nightly", feature(allocator_api))]
     ///
-    /// use safe_allocator_api::allocator_api::*;
+    /// use safe_allocator_api::prelude::*;
     /// use safe_allocator_api::RawAlloc;
     ///
     /// let layout = Layout::array::<u8>(100).unwrap();
