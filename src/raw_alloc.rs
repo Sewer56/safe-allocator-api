@@ -3,8 +3,8 @@
 //! This crate provides a safe interface for working with raw allocations while maintaining
 //! the same error handling semantics as the underlying allocation APIs.
 use crate::prelude::*;
-use core::ptr::NonNull;
 use core::fmt;
+use core::ptr::NonNull;
 
 /// A safe wrapper around a raw allocation with known layout.
 ///
@@ -57,7 +57,7 @@ impl<A: Allocator> RawAlloc<A> {
     /// # Example
     ///
     /// ```rust
-    /// #![feature(allocator_api)]
+    /// #![cfg_attr(feature = "nightly", feature(allocator_api))]
     ///
     /// use core::alloc::Layout;
     /// use safe_allocator_api::prelude::*;
