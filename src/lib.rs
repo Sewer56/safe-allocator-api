@@ -6,7 +6,9 @@ extern crate alloc;
 #[cfg(feature = "std")]
 extern crate std;
 
+// Internal prelude module for conditional allocator imports
+mod prelude;
+
 pub mod raw_alloc;
 pub use raw_alloc::*;
-pub mod allocator_api;
-pub use allocator_api::*;
+pub use prelude::*;

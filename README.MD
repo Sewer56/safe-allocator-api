@@ -28,7 +28,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-safe-allocator-api = "0.1.0"
+safe-allocator-api = "0.5.0"
 ```
 
 ## Examples

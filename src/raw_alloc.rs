@@ -4,7 +4,7 @@
 //! the same error handling semantics as the underlying allocation APIs.
 use crate::allocator_api::*;
 use core::ptr::NonNull;
-use core::{alloc::Layout, fmt};
+use core::fmt;
 
 /// A safe wrapper around a raw allocation with known layout.
 ///
