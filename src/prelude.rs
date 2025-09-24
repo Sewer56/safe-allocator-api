@@ -1,4 +1,4 @@
-//! Internal prelude module for allocator API types.
+//! Prelude module for allocator API types.
 //!
 //! This module centralizes the conditional imports for allocator-related types,
 //! allowing the rest of the crate to use consistent types regardless of whether

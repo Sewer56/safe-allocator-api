@@ -59,7 +59,6 @@ impl<A: Allocator> RawAlloc<A> {
     /// ```rust
     /// #![cfg_attr(feature = "nightly", feature(allocator_api))]
     ///
-    /// use core::alloc::Layout;
     /// use safe_allocator_api::prelude::*;
     /// use safe_allocator_api::RawAlloc;
     ///
