@@ -22,8 +22,8 @@ jobs:
           - { os: windows-latest, target: x86_64-pc-windows-msvc, use-cross: false, rust-toolchain: stable, features: "" }
           - { os: windows-latest, target: i686-pc-windows-msvc, use-cross: false, rust-toolchain: stable, features: "" }
           # - { os: windows-latest, target: aarch64-pc-windows-msvc, use-cross: false, rust-toolchain: stable, features: "" } # Enterprise only.
-          - { os: macos-13, target: x86_64-apple-darwin, use-cross: false, rust-toolchain: stable, features: "" } # x86
-          - { os: macos-14, target: aarch64-apple-darwin, use-cross: false, rust-toolchain: stable, features: "" } # M1
+          - { os: macos-15-intel, target: x86_64-apple-darwin, use-cross: false, rust-toolchain: stable, features: "" } # x86
+          - { os: macos-latest, target: aarch64-apple-darwin, use-cross: false, rust-toolchain: stable, features: "" } # M1
           # Nightly
           - { os: ubuntu-latest, target: x86_64-unknown-linux-gnu, use-cross: false, rust-toolchain: nightly, features: "nightly" }
           - { os: ubuntu-latest, target: i686-unknown-linux-gnu, use-cross: false, rust-toolchain: nightly, features: "nightly" }
@@ -32,8 +32,8 @@ jobs:
           - { os: windows-latest, target: x86_64-pc-windows-msvc, use-cross: false, rust-toolchain: nightly, features: "nightly" }
           - { os: windows-latest, target: i686-pc-windows-msvc, use-cross: false, rust-toolchain: nightly, features: "nightly" }
           # - { os: windows-latest, target: aarch64-pc-windows-msvc, use-cross: false, rust-toolchain: nightly, features: "nightly" } # Enterprise only.
-          - { os: macos-13, target: x86_64-apple-darwin, use-cross: false, rust-toolchain: nightly, features: "nightly" } # x86
-          - { os: macos-14, target: aarch64-apple-darwin, use-cross: false, rust-toolchain: nightly, features: "nightly" } # M1
+          - { os: macos-15-intel, target: x86_64-apple-darwin, use-cross: false, rust-toolchain: nightly, features: "nightly" } # x86
+          - { os: macos-latest, target: aarch64-apple-darwin, use-cross: false, rust-toolchain: nightly, features: "nightly" } # M1
 
     runs-on: ${{ matrix.os }}
 
