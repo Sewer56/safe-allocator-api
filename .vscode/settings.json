@@ -1,9 +1,6 @@
 {
-    "[rust]": {
-        "editor.formatOnSave": true
-    },
-    "coverage-gutters.coverageFileNames": [
-        "cobertura.xml"
-    ],
-    "rust-analyzer.check.command": "clippy"
+    "yaml.format.printWidth": 9999,
+    "[yaml]": {
+        "editor.wordWrap": "off"
+    }
 }
