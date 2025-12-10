@@ -3,7 +3,6 @@
 [![Crates.io](https://img.shields.io/crates/v/safe-allocator-api.svg)](https://crates.io/crates/safe-allocator-api)
 [![Docs.rs](https://docs.rs/safe-allocator-api/badge.svg)](https://docs.rs/safe-allocator-api)
 [![CI](https://github.com/Sewer56/safe-allocator-api/actions/workflows/rust.yml/badge.svg)](https://github.com/Sewer56/safe-allocator-api/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A safe wrapper around the `allocator_api`'s [Allocator] trait.
 
@@ -22,7 +21,7 @@ is automatically dropped when its lifetime expires.
 
 In my case I wrote this crate to have a 'safe' way to make aligned allocations 😉.
 
-## Usage
+## Installation
 
 Add this to your `Cargo.toml`:
 
@@ -31,7 +30,14 @@ Add this to your `Cargo.toml`:
 safe-allocator-api = "0.5.0"
 ```
 
-## Examples
+### Feature Flags
+
+| Feature   | Description                                          |
+| --------- | ---------------------------------------------------- |
+| `std`     | Enable standard library support (enabled by default) |
+| `nightly` | Enable nightly `allocator_api` feature               |
+
+## Usage
 
 ### Basic Allocation
 
@@ -130,28 +136,9 @@ Operations will return [AllocError] in the following cases:
 
 i.e. This is a thin wrapper around the existing API, so we reuse error types from std.
 
-## Crate Features
-
-- `std` \[default\]: Builds against `std`
-- `nightly`: Enables the nightly `allocator_api` feature
-
-See the [safe-allocator-api crate documentation](https://github.com/Sewer56/safe-allocator-api/blob/main/src/safe-allocator-api/README.MD) for detailed usage.
-
-## Crates
-
-- [safe-allocator-api](https://github.com/Sewer56/safe-allocator-api/blob/main/src/safe-allocator-api/README.MD): Safe wrapper around allocator_api
-
-## Developer Manual
-
-For step-by-step development guidance, see the [Developer Manual](https://reloaded-project.github.io/reloaded-templates-rust/manual/).
-
-## Contributing
-
-We welcome contributions! See the [Contributing Guide](https://reloaded-project.github.io/reloaded-templates-rust/manual/#contributing) for details.
-
 ## License
 
-Licensed under [MIT](./LICENSE).
+Licensed under [MIT](https://github.com/Sewer56/safe-allocator-api/blob/main/LICENSE).
 
 [Allocator]: https://doc.rust-lang.org/std/alloc/trait.Allocator.html
 [AllocError]: https://doc.rust-lang.org/std/alloc/struct.AllocError.html
